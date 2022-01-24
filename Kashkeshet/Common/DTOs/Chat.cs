@@ -6,7 +6,7 @@ namespace Common.DTOs
     public enum Chat
     {
         GlobalChat = 0,
-        PrivateChat,
-        GroupChat
+        PrivateChat = 1,
+        GroupChat = 2
     }
 }
