@@ -1,6 +1,6 @@
 ﻿namespace Common
 {
-    interface IOutput<T>
+    public interface IOutput<T>
     {
         void Write(T output);
     }
