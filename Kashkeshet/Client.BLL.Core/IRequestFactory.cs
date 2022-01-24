@@ -4,6 +4,6 @@ namespace Client.BLL.Core
 {
     public interface IRequestFactory
     {
-        Request CreateRequest(Chat chat, Message message);
+        Request CreateRequest(RequestType requestType, Message message, string fromWho);
     }
 }

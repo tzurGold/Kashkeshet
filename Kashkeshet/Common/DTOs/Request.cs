@@ -5,13 +5,15 @@ namespace Common.DTOs
     [Serializable]
     public class Request
     {
-        private readonly Chat _chat;
+        private readonly RequestType _requestType;
         private readonly Message _message;
+        private readonly string _from;
 
-        public Request(Chat chat, Message message)
+        public Request(RequestType requestType, Message message, string fromWho)
         {
-            _chat = chat;
+            _requestType = requestType;
             _message = message;
+            _from = fromWho;
         }
     }
 }
