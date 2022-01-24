@@ -7,7 +7,7 @@ namespace Common.DTOs
     {
         private readonly string _to; 
         private readonly object _content;
-        private  readonly MessageContentType _contentType;
+        private readonly MessageContentType _contentType;
 
         public Message(string to, object content, MessageContentType contentType)
         {
