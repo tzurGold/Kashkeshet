@@ -7,12 +7,14 @@ namespace Client.BLL.Core.MessageHandlers
 {
     public abstract class CommonMessageReceiverBase : MessageReceiverBase
     {
+        protected readonly IDictionary<MessageContentType, MessageContentProviderBase> MessageContentProviders;
+
         protected CommonMessageReceiverBase(IInputReceiver inputReceiver,
             IOutputDisplayer outputDisplayer,
             IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
-            : base(inputReceiver, outputDisplayer, messageContentProviders)
+            : base(inputReceiver, outputDisplayer)
         {
-            
+            MessageContentProviders = messageContentProviders;
         }
 
         public override Message GetMessage()
@@ -27,8 +29,8 @@ namespace Client.BLL.Core.MessageHandlers
         protected virtual MessageContentType GetContentType()
         {
             bool validInput = false;
-            string messageToUser = $"1. Send text message{Environment.NewLine}" +
-                $"2. Transfer file{Environment.NewLine}" +
+            string messageToUser = $"1. Send text message {Environment.NewLine}" +
+                $"2. Transfer file {Environment.NewLine}" +
                 $"Please Enter your choice:";
             MessageContentType contentType = MessageContentType.Text;
             while (!validInput)

@@ -10,6 +10,7 @@ namespace Client.BLL.Core
         protected MessageContentProviderBase(IInputReceiver inputReceiver, IOutputDisplayer outputDisplayer)
         {
             InputReceiver = inputReceiver;
+            OutputDisplayer = outputDisplayer;
         }
 
         public abstract object ProvideContent();

@@ -1,4 +1,4 @@
-﻿using Common.IO.Abstraction;
+﻿using Common.IO.Abstractions;
 using System;
 
 namespace Common.IO.Implementations

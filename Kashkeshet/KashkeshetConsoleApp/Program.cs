@@ -11,7 +11,7 @@ namespace KashkeshetConsoleApp
 
             IClientOrchestrator clientOrchestrator = bootstrapper.Initialize();
 
-            clientOrchestrator.Run();
+            clientOrchestrator?.Run();
         }
     }
 }

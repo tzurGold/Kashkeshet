@@ -8,15 +8,12 @@ namespace Client.BLL.Core.MessageHandlers
     {
         protected readonly IInputReceiver InputReceiver;
         protected readonly IOutputDisplayer OutputDisplayer;
-        protected readonly IDictionary<MessageContentType, MessageContentProviderBase> MessageContentProviders;
 
         protected MessageReceiverBase(IInputReceiver inputReceiver,
-            IOutputDisplayer outputDisplayer,
-            IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
+            IOutputDisplayer outputDisplayer)
         {
             InputReceiver = inputReceiver;
             OutputDisplayer = outputDisplayer;
-            MessageContentProviders = messageContentProviders;
         }
 
         public abstract Message GetMessage();

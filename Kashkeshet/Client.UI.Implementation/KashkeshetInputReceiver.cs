@@ -1,5 +1,5 @@
 ﻿using Client.UI.Core;
-using Common.IO.Abstraction;
+using Common.IO.Abstractions;
 
 namespace Client.UI.Implementation
 {

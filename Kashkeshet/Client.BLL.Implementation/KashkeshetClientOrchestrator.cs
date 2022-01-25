@@ -41,14 +41,6 @@ namespace Client.BLL.Implementation
 
         public void Run()
         {
-            try
-            {
-                _clientConnection.Connect();
-            }
-            catch (SocketException e)
-            {
-                _clientConnection.CloseConnection();
-            }
             Task.Run(() => _responseHandler.HandleResponse());
             RequestType requestType = RequestType.GlobalChat;
             while(requestType != RequestType.Logout)
