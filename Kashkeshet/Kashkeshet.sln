@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UI.Core", "Client.UI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UI.Implementation", "Client.UI.Implementation\Client.UI.Implementation.csproj", "{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{8645E6AD-E547-4AC4-8B3D-D5B29FAA1313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KashkeshetConsoleApp", "KashkeshetConsoleApp\KashkeshetConsoleApp.csproj", "{EF992110-EEBA-4FC3-8898-D9B66D9C525D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF992110-EEBA-4FC3-8898-D9B66D9C525D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF992110-EEBA-4FC3-8898-D9B66D9C525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF992110-EEBA-4FC3-8898-D9B66D9C525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF992110-EEBA-4FC3-8898-D9B66D9C525D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,8 @@ Global
 		{D9F19E9D-7577-4DE8-9E04-FCB0E0B77395} = {82A86AD4-DDCB-4C85-B276-5705705E8B91}
 		{9F1B60A0-880D-4729-AAE6-99FB5111817A} = {D9F19E9D-7577-4DE8-9E04-FCB0E0B77395}
 		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84} = {D9F19E9D-7577-4DE8-9E04-FCB0E0B77395}
+		{8645E6AD-E547-4AC4-8B3D-D5B29FAA1313} = {82A86AD4-DDCB-4C85-B276-5705705E8B91}
+		{EF992110-EEBA-4FC3-8898-D9B66D9C525D} = {8645E6AD-E547-4AC4-8B3D-D5B29FAA1313}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE4D09E8-60FE-40E5-A673-2B4CB524F8DF}
