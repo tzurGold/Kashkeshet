@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.BLL.Core;
+using System;
 
 namespace KashkeshetConsoleApp
 {
@@ -6,7 +7,11 @@ namespace KashkeshetConsoleApp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Bootstrapper bootstrapper = new Bootstrapper();
+
+            IClientOrchestrator clientOrchestrator = bootstrapper.Initialize();
+
+            clientOrchestrator.Run();
         }
     }
 }

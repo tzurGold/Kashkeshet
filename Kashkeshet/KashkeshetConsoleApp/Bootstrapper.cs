@@ -1,10 +1,12 @@
-﻿namespace KashkeshetConsoleApp
+﻿using Client.BLL.Core;
+
+namespace KashkeshetConsoleApp
 {
     public class Bootstrapper
     {
-        public void Initialize()
+        public IClientOrchestrator Initialize()
         {
-
+            return null;
         }
     }
 }
