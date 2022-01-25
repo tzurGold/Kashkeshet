@@ -9,7 +9,7 @@ namespace Client.BLL.Implementation.MessageHandlers
     public class GloablMessageReceiver : CommonMessageReceiverBase
     {
         public GloablMessageReceiver(IInputReceiver inputReceiver,
-            IDictionary<MessageContentType, IMessageContentProvider> messageContentProviders)
+            IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
             : base(inputReceiver, messageContentProviders)
         {
 

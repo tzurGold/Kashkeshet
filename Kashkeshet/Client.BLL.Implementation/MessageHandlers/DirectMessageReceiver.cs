@@ -9,7 +9,7 @@ namespace Client.BLL.Implementation.MessageHandlers
     public class DirectMessageReceiver : CommonMessageReceiverBase
     {
         public DirectMessageReceiver(IInputReceiver inputReceiver,
-            IDictionary<MessageContentType, IMessageContentProvider> messageContentProviders)
+            IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
             : base(inputReceiver, messageContentProviders)
         {
 

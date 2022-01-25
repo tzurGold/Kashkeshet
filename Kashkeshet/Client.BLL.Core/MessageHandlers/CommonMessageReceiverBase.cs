@@ -8,7 +8,7 @@ namespace Client.BLL.Core.MessageHandlers
     public abstract class CommonMessageReceiverBase : MessageReceiverBase
     {
         protected CommonMessageReceiverBase(IInputReceiver inputReceiver,
-            IDictionary<MessageContentType, IMessageContentProvider> messageContentProviders)
+            IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
             : base(inputReceiver, messageContentProviders)
         {
             
