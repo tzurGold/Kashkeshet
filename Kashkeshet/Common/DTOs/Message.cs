@@ -5,15 +5,15 @@ namespace Common.DTOs
     [Serializable]
     public class Message
     {
-        private readonly string _to; 
-        private readonly object _content;
-        private readonly MessageContentType _contentType;
+        public readonly string To; 
+        public readonly object Content;
+        public readonly MessageContentType ContentType;
 
         public Message(string to, object content, MessageContentType contentType)
         {
-            _to = to;
-            _content = content;
-            _contentType = contentType;
+            To = to;
+            Content = content;
+            ContentType = contentType;
         }
     }
 }

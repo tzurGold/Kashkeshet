@@ -5,15 +5,15 @@ namespace Common.DTOs
     [Serializable]
     public class Response
     {
-        private readonly string _from;
-        private readonly object _content;
-        private readonly MessageContentType _contentType;
+        public readonly string From;
+        public readonly object Content;
+        public readonly MessageContentType ContentType;
 
         public Response(string from, object content, MessageContentType contentType)
         {
-            _from = from;
-            _content = content;
-            _contentType = contentType;
+            From = from;
+            Content = content;
+            ContentType = contentType;
         }
     }
 }

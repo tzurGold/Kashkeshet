@@ -5,15 +5,15 @@ namespace Common.DTOs
     [Serializable]
     public class KashkeshetFile
     {
-        private readonly string _name;
-        private readonly long _length;
-        private readonly string _content;
+        public readonly string Name;
+        public readonly long Length;
+        public readonly string Content;
 
         public KashkeshetFile(string name, long length, string content)
         {
-            _name = name;
-            _length = length;
-            _content = content;
+            Name = name;
+            Length = length;
+            Content = content;
         }
     }
 }

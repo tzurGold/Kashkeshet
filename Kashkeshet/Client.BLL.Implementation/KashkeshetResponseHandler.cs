@@ -5,21 +5,21 @@ using Common.DTOs;
 
 namespace Client.BLL.Implementation
 {
-    public class KashkeshetResponseHandler : IResponseHandler
+    public class KashkeshetResonseHandler : IResponseHandler
     {
         private readonly ICommunicator _communicator;
-        private readonly IInputReceiver _inputReceiver;
+        private readonly IOutputDisplayer _outputDisplayer;
 
-        public KashkeshetResponseHandler(ICommunicator communicator, IInputReceiver inputReceiver)
+        public KashkeshetResonseHandler(ICommunicator communicator, IOutputDisplayer outputDisplayer)
         {
             _communicator = communicator;
-            _inputReceiver = inputReceiver;
+            _outputDisplayer = outputDisplayer;
         }
 
         public void HandleResponse()
         {
             Response response = (Response)_communicator.Receive();
-            //_inputReceiver.
+            //_outputDisplayer.DisplayOutput(response.)
         }
     }
 }
