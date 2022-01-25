@@ -1,9 +1,7 @@
-﻿using Common.DTOs;
-
-namespace Client.BLL.Core
+﻿namespace Client.BLL.Core
 {
     public interface IResponseHandler
     {
-        Response GetResponse();
+        void HandleResponse();
     }
 }
