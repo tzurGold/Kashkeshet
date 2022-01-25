@@ -1,5 +1,4 @@
 ﻿using Client.BLL.Core;
-using System;
 
 namespace KashkeshetConsoleApp
 {
