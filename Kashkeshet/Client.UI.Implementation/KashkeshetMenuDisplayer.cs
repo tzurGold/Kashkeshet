@@ -5,15 +5,13 @@ namespace Client.UI.Implementation
 {
     public class KashkeshetMenuDisplayer : IMenuDisplayer
     {
-        private MenuDescriptionBase _menuDescription;
-        private IInput<string> _reader;
-        private IOutput<string> _output;
+        private readonly MenuDescriptionBase _menuDescription;
+        private readonly IOutput<string> _output;
 
         public KashkeshetMenuDisplayer(MenuDescriptionBase menuDescription,
-            IInput<string> reader,
             IOutput<string> output)
         {
-            _reader = reader;
+            _menuDescription = menuDescription;
             _output = output;
         }
 
