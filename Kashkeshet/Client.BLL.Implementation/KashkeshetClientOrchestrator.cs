@@ -47,13 +47,9 @@ namespace Client.BLL.Implementation
             {
                 _menuDisplayer.DisplayMenu();
                 requestType = _optionReceiver.ChooseOption();
-                if (requestType != RequestType.Logout)
-                {
-                    Message message = _messageHandlers[requestType].GetMessage();
-                    Request request = _requestFactory.CreateRequest(requestType, message, _clientName);
-                    _communicator.Send(request);
-                }
-
+                Message message = _messageHandlers[requestType].GetMessage();
+                Request request = _requestFactory.CreateRequest(requestType, message, _clientName);
+                _communicator.Send(request);
             }
         }
     }

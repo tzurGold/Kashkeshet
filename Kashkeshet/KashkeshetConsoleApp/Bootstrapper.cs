@@ -53,17 +53,25 @@ namespace KashkeshetConsoleApp
             IDictionary<RequestType, MessageReceiverBase> messageHandlers =
                 new Dictionary<RequestType, MessageReceiverBase>
                 {
-                    { RequestType.GlobalChat,
+                    {
+                        RequestType.GlobalChat,
                         new GloablMessageReceiver(inputReceiver, outputDisplayer, messageContentProviders)
                     },
-                    { RequestType.PrivateChat,
+                    {
+                        RequestType.PrivateChat,
                         new DirectMessageReceiver(inputReceiver, outputDisplayer, messageContentProviders)
                     },
-                    { RequestType.GroupChat,
+                    {
+                        RequestType.GroupChat,
                         new DirectMessageReceiver(inputReceiver, outputDisplayer, messageContentProviders)
                     },
-                    { RequestType.NewChat, 
+                    {
+                        RequestType.NewChat,
                         new CreateChatMessageReceiver(inputReceiver, outputDisplayer)
+                    },
+                    {
+                        RequestType.Logout,
+                        new LogoutMessageReceiver(inputReceiver, outputDisplayer);
                     }
                 };
             try
