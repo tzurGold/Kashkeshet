@@ -15,5 +15,13 @@ namespace Common.DTOs
             Length = length;
             Content = content;
         }
+
+        public override string ToString()
+        {
+            string result = $"File name: {Name}{Environment.NewLine}" +
+                $"Legth: {Length}{Environment.NewLine}" +
+                $"Content: {Content}";
+            return result;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Common.Communicators.Abstractions;
 using Client.UI.Core;
 using Common.DTOs;
+using System;
 
 namespace Client.BLL.Implementation
 {
@@ -18,8 +19,12 @@ namespace Client.BLL.Implementation
 
         public void HandleResponse()
         {
-            Response response = (Response)_communicator.Receive();
-            //_outputDisplayer.DisplayOutput(response.)
+            while (true)
+            {
+                Response response = (Response)_communicator.Receive();
+                string output = $"{response.From}:{Environment.NewLine}{response.Content}";
+                _outputDisplayer.DisplayOutput(output);
+            }
         }
     }
 }
