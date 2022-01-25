@@ -1,9 +1,11 @@
-﻿using Common.DTOs;
+﻿using Common.Communicators.Abstractions;
+using Common.DTOs;
+using System.Collections.Generic;
 
 namespace Server.BLL.Core
 {
     public interface IResponder
     {
-        void Respond(Message message, string senderName);
+        void Respond(IDictionary<string, ICommunicator> receivers, Response response, IChat chat);
     }
 }
