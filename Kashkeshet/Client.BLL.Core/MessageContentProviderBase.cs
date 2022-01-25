@@ -5,8 +5,9 @@ namespace Client.BLL.Core
     public abstract class MessageContentProviderBase
     {
         protected readonly IInputReceiver InputReceiver;
+        protected readonly IOutputDisplayer OutputDisplayer;
 
-        protected MessageContentProviderBase(IInputReceiver inputReceiver)
+        protected MessageContentProviderBase(IInputReceiver inputReceiver, IOutputDisplayer outputDisplayer)
         {
             InputReceiver = inputReceiver;
         }

@@ -9,15 +9,17 @@ namespace Client.BLL.Implementation.MessageHandlers
     public class DirectMessageReceiver : CommonMessageReceiverBase
     {
         public DirectMessageReceiver(IInputReceiver inputReceiver,
+            IOutputDisplayer outputDisplayer,
             IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
-            : base(inputReceiver, messageContentProviders)
+            : base(inputReceiver, outputDisplayer, messageContentProviders)
         {
 
         }
 
         protected override string ChooseMessageRecipients()
         {
-            return InputReceiver.GetInput("Please enter recipient: ");
+            OutputDisplayer.DisplayOutput("Please enter recipient: ");
+            return InputReceiver.GetInput();
         }
     }
 }

@@ -1,18 +1,17 @@
 ﻿using Client.UI.Core;
-using Common.IO;
 
 namespace Client.UI.Implementation
 {
     public class KashkeshetMenuDisplayer : IMenuDisplayer
     {
         private readonly MenuDescriptionBase _menuDescription;
-        private readonly IOutput<string> _output;
+        private readonly IOutputDisplayer _outputDisplayer;
 
         public KashkeshetMenuDisplayer(MenuDescriptionBase menuDescription,
-            IOutput<string> output)
+            IOutputDisplayer outputDisplayer)
         {
             _menuDescription = menuDescription;
-            _output = output;
+            _outputDisplayer = outputDisplayer;
         }
 
         public void DisplayMenu()
@@ -20,7 +19,7 @@ namespace Client.UI.Implementation
             var menu = _menuDescription.GetDescription();
             foreach (var option in menu)
             {
-                _output.Write($"{option.Key}. {option.Value}");
+                _outputDisplayer.DisplayOutput($"{option.Key}. {option.Value}");
             }
         }
     }

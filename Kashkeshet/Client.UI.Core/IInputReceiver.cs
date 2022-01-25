@@ -2,6 +2,6 @@
 {
     public interface IInputReceiver
     {
-        string GetInput(string messageToUser);
+        string GetInput();
     }
 }

@@ -8,8 +8,9 @@ namespace Client.BLL.Core.MessageHandlers
     public abstract class CommonMessageReceiverBase : MessageReceiverBase
     {
         protected CommonMessageReceiverBase(IInputReceiver inputReceiver,
+            IOutputDisplayer outputDisplayer,
             IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
-            : base(inputReceiver, messageContentProviders)
+            : base(inputReceiver, outputDisplayer, messageContentProviders)
         {
             
         }
@@ -32,7 +33,8 @@ namespace Client.BLL.Core.MessageHandlers
             MessageContentType contentType = MessageContentType.Text;
             while (!validInput)
             {
-                string selectedOption = InputReceiver.GetInput(messageToUser);
+                OutputDisplayer.DisplayOutput(messageToUser);
+                string selectedOption = InputReceiver.GetInput();
                 validInput = Enum.TryParse(selectedOption, out contentType);
             }
             return contentType;

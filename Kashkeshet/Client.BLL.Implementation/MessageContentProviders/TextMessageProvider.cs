@@ -5,15 +5,16 @@ namespace Client.BLL.Implementation.MessageContentProviders
 {
     public class TextMessageProvider : MessageContentProviderBase
     {
-        public TextMessageProvider(IInputReceiver inputReceiver) :
-            base(inputReceiver)
+        public TextMessageProvider(IInputReceiver inputReceiver, IOutputDisplayer outputDisplayer) :
+            base(inputReceiver, outputDisplayer)
         {
 
         }
 
         public override object ProvideContent()
         {
-            return InputReceiver.GetInput("Please enter your message: ");
+            OutputDisplayer.DisplayOutput("Please enter your message: ");
+            return InputReceiver.GetInput();
         }
     }
 }

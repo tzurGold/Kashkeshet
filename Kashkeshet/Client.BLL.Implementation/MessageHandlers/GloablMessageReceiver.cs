@@ -9,8 +9,9 @@ namespace Client.BLL.Implementation.MessageHandlers
     public class GloablMessageReceiver : CommonMessageReceiverBase
     {
         public GloablMessageReceiver(IInputReceiver inputReceiver,
+            IOutputDisplayer outputDisplayer,
             IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
-            : base(inputReceiver, messageContentProviders)
+            : base(inputReceiver, outputDisplayer, messageContentProviders)
         {
 
         }
