@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server.BLL.Core;
+using System;
 
 namespace Server.Application
 {
@@ -6,7 +7,13 @@ namespace Server.Application
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Bootstrapper bootstrapper = new Bootstrapper();
+
+            ServerBase server = bootstrapper.Initialize();
+
+            server.Listen();
+
+            server.Serve();
         }
     }
 }

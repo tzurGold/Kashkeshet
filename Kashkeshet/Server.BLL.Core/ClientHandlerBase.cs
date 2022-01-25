@@ -1,4 +1,5 @@
-﻿using Common.DTOs;
+﻿using Common.Communicators.Abstractions;
+using Common.DTOs;
 using System.Collections.Generic;
 
 namespace Server.BLL.Core
@@ -13,5 +14,19 @@ namespace Server.BLL.Core
             _requestReceiver = requestReceiver;
             _responders = responders;
         }
+
+        public abstract void HandleClient(ICommunicator communicator);
+
+        /*private void HandleClient(TcpClient client)
+        {
+            while (true)
+            {
+                Request request = (Request)communicator.Receive();
+                // addConnection()
+                // processing + 
+                // response
+
+            }
+        }*/
     }
 }

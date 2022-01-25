@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Server.BLL.Core\Server.BLL.Core.csproj" />
+    <ProjectReference Include="..\Server.BLL.Implementation\Server.BLL.Implementation.csproj" />
+  </ItemGroup>
+
 </Project>

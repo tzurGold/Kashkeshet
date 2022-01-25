@@ -1,17 +1,19 @@
-﻿namespace Server.BLL.Core
+﻿using System.Net;
+
+namespace Server.BLL.Core
 {
     public abstract class ServerBase
     {
-        protected readonly uint Port;
-        protected readonly uint Ip;
+        protected readonly int Port;
+        protected readonly IPAddress Ip;
 
-        protected ServerBase(uint port, uint ip)
+        protected ServerBase(int port, IPAddress ip)
         {
             Port = port;
             Ip = ip;
         }
 
-        public abstract void Connect();
+        public abstract void Listen();
         public abstract void Serve();
     }
 }

@@ -9,6 +9,7 @@ namespace Client.UI.Implementation
         private readonly IInputReceiver _inputReceiver;
         private readonly IOutputDisplayer _outputDisplayer;
         private const string _explanation = "Please enter your choice: ";
+        private const string _wrongInput = "Wrong input, try again";
 
         public MenuOptionReceiver(IInputReceiver inputReceiver, IOutputDisplayer outputDisplayer)
         {
@@ -25,6 +26,11 @@ namespace Client.UI.Implementation
                 _outputDisplayer.DisplayOutput(_explanation);
                 string input = _inputReceiver.GetInput();
                 validInput = Enum.TryParse(input, out requestType);
+                if(!validInput || !Enum.IsDefined(typeof(RequestType), requestType))
+                {
+                    validInput = false;
+                    _outputDisplayer.DisplayOutput(_wrongInput);
+                }
             }
             return requestType;
         }

@@ -38,6 +38,11 @@ namespace Client.BLL.Core.MessageHandlers
                 OutputDisplayer.DisplayOutput(messageToUser);
                 string selectedOption = InputReceiver.GetInput();
                 validInput = Enum.TryParse(selectedOption, out contentType);
+                if (!validInput || !Enum.IsDefined(typeof(MessageContentType), contentType))
+                {
+                    validInput = false;
+                    OutputDisplayer.DisplayOutput("Wrong input, try again");
+                }
             }
             return contentType;
         }
