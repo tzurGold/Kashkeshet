@@ -71,7 +71,7 @@ namespace KashkeshetConsoleApp
                     },
                     {
                         RequestType.Logout,
-                        new LogoutMessageReceiver(inputReceiver, outputDisplayer);
+                        new LogoutMessageReceiver(inputReceiver, outputDisplayer)
                     }
                 };
             try
