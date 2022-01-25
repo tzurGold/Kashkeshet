@@ -1,7 +1,9 @@
-﻿namespace Client.UI.Core
+﻿using Common.DTOs;
+
+namespace Client.UI.Core
 {
     public interface IOptionReceiver
     {
-        string ChooseOption();
+        RequestType ChooseOption();
     }
 }

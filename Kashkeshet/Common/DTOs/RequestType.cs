@@ -5,10 +5,10 @@ namespace Common.DTOs
     [Serializable]
     public enum RequestType
     {
-        GlobalChat = 0,
-        PrivateChat = 1,
-        GroupChat = 2,
-        NewChat = 3,
-        Logout = 4
+        GlobalChat = 1,
+        PrivateChat = 2,
+        GroupChat = 3,
+        NewChat = 4,
+        Logout = 5
     }
 }
