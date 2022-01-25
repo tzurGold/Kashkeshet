@@ -2,13 +2,13 @@
 {
     public abstract class ClientConnectionBase
     {
-        private readonly uint _port;
-        private readonly string _ip;
+        protected readonly int Port;
+        protected readonly string Ip;
 
-        protected ClientConnectionBase(uint port, string ip)
+        protected ClientConnectionBase(int port, string ip)
         {
-            _port = port;
-            _ip = ip;
+            Port = port;
+            Ip = ip;
         }
 
         public abstract void Connect();
