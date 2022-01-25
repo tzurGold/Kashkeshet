@@ -1,4 +1,4 @@
-﻿namespace Common
+﻿namespace Common.IO
 {
     public interface IInput<T>
     {

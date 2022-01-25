@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.BLL.Core", "Server.B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{D9F19E9D-7577-4DE8-9E04-FCB0E0B77395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.UI.Core", "Client.UI.Core\Client.UI.Core.csproj", "{9F1B60A0-880D-4729-AAE6-99FB5111817A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UI.Core", "Client.UI.Core\Client.UI.Core.csproj", "{9F1B60A0-880D-4729-AAE6-99FB5111817A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UI.Implementation", "Client.UI.Implementation\Client.UI.Implementation.csproj", "{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{9F1B60A0-880D-4729-AAE6-99FB5111817A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F1B60A0-880D-4729-AAE6-99FB5111817A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F1B60A0-880D-4729-AAE6-99FB5111817A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{BA6CDE88-5078-4206-B96A-536801E5CF3F} = {50F86FC6-34C2-4FF6-BBA7-DAD2B4AFDF02}
 		{D9F19E9D-7577-4DE8-9E04-FCB0E0B77395} = {82A86AD4-DDCB-4C85-B276-5705705E8B91}
 		{9F1B60A0-880D-4729-AAE6-99FB5111817A} = {D9F19E9D-7577-4DE8-9E04-FCB0E0B77395}
+		{DB42CA39-2DA1-435C-B7FF-DB77988EDB84} = {D9F19E9D-7577-4DE8-9E04-FCB0E0B77395}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE4D09E8-60FE-40E5-A673-2B4CB524F8DF}
