@@ -5,7 +5,7 @@ namespace Common.DTOs
     [Serializable]
     public enum MessageContentType
     {
-        Text = 0,
-        File = 1
+        Text = 1,
+        File = 2
     }
 }

@@ -8,6 +8,12 @@ namespace Client.UI.Implementation
         private readonly IInput<string> _reader;
         private readonly IOutput<string> _writer;
 
+        public KashkeshetInputReceiver(IInput<string> reader, IOutput<string> writer)
+        {
+            _reader = reader;
+            _writer = writer;
+        }
+
         public string GetInput(string messageToUser)
         {
             _writer.Write(messageToUser);
