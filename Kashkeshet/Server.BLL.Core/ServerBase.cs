@@ -2,13 +2,13 @@
 {
     public abstract class ServerBase
     {
-        private readonly uint _port;
-        private readonly uint _ip;
+        protected readonly uint Port;
+        protected readonly uint Ip;
 
         protected ServerBase(uint port, uint ip)
         {
-            _port = port;
-            _ip = ip;
+            Port = port;
+            Ip = ip;
         }
 
         public abstract void Connect();

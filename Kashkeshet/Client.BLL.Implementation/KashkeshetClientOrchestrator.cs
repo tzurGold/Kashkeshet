@@ -51,6 +51,7 @@ namespace Client.BLL.Implementation
                 Request request = _requestFactory.CreateRequest(requestType, message, _clientName);
                 _communicator.Send(request);
             }
+            _clientConnection.CloseConnection();
         }
     }
 }
