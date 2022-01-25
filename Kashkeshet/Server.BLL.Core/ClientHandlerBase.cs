@@ -5,8 +5,8 @@ namespace Server.BLL.Core
 {
     public abstract class ClientHandlerBase
     {
-        private IRequestReceiver _requestReceiver;
-        private IDictionary<RequestType, IResponder> _responders;
+        private readonly IRequestReceiver _requestReceiver;
+        private readonly IDictionary<RequestType, IResponder> _responders;
 
         protected ClientHandlerBase(IRequestReceiver requestReceiver, IDictionary<RequestType, IResponder> responders)
         {

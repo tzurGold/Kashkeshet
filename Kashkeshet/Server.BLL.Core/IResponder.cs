@@ -4,6 +4,6 @@ namespace Server.BLL.Core
 {
     public interface IResponder
     {
-        void respond(Message message, string senderName);
+        void Respond(Message message, string senderName);
     }
 }
