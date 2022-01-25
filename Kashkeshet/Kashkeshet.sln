@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.UI.Implementation", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{8645E6AD-E547-4AC4-8B3D-D5B29FAA1313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KashkeshetConsoleApp", "KashkeshetConsoleApp\KashkeshetConsoleApp.csproj", "{EF992110-EEBA-4FC3-8898-D9B66D9C525D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KashkeshetConsoleApp", "KashkeshetConsoleApp\KashkeshetConsoleApp.csproj", "{EF992110-EEBA-4FC3-8898-D9B66D9C525D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client.BLL.Implementation", "Client.BLL.Implementation\Client.BLL.Implementation.csproj", "{21120777-971A-4566-A2FC-201BBFC37676}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client.BLL.Implementation", "Client.BLL.Implementation\Client.BLL.Implementation.csproj", "{21120777-971A-4566-A2FC-201BBFC37676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Application", "Server.Application\Server.Application.csproj", "{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{21120777-971A-4566-A2FC-201BBFC37676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21120777-971A-4566-A2FC-201BBFC37676}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21120777-971A-4566-A2FC-201BBFC37676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{8645E6AD-E547-4AC4-8B3D-D5B29FAA1313} = {82A86AD4-DDCB-4C85-B276-5705705E8B91}
 		{EF992110-EEBA-4FC3-8898-D9B66D9C525D} = {8645E6AD-E547-4AC4-8B3D-D5B29FAA1313}
 		{21120777-971A-4566-A2FC-201BBFC37676} = {8DD95562-6199-4B20-9E96-CC6978578F91}
+		{1541452F-5CBB-452F-9BAA-B7D1EBE9E39C} = {50F86FC6-34C2-4FF6-BBA7-DAD2B4AFDF02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE4D09E8-60FE-40E5-A673-2B4CB524F8DF}
