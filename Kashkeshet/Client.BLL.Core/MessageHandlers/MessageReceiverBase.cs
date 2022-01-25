@@ -2,7 +2,7 @@
 using Common.DTOs;
 using System.Collections.Generic;
 
-namespace Client.BLL.Core
+namespace Client.BLL.Core.MessageHandlers
 {
     public abstract class MessageReceiverBase
     {

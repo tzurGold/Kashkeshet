@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Client.UI.Core;
 using Common.DTOs;
 
-namespace Client.BLL.Core
+namespace Client.BLL.Core.MessageHandlers
 {
     public abstract class CommonMessageReceiverBase : MessageReceiverBase
     {
@@ -11,7 +11,7 @@ namespace Client.BLL.Core
             IDictionary<MessageContentType, IMessageContentProvider> messageContentProviders)
             : base(inputReceiver, messageContentProviders)
         {
-
+            
         }
 
         public override Message GetMessage()
