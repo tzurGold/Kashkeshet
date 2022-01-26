@@ -9,7 +9,14 @@ namespace Server.BLL.Implementation
     {
         public ChatBase SelectChat(string chatName, IList<ChatBase> chats)
         {
-            return chats.Where(chat => chat.Name == chatName).First();
+            try
+            {
+                return chats.Where(chat => chat.Name == chatName).First();
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
