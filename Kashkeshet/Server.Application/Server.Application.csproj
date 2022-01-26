@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Server.BLL.Core\Server.BLL.Core.csproj" />
     <ProjectReference Include="..\Server.BLL.Implementation\Server.BLL.Implementation.csproj" />
   </ItemGroup>

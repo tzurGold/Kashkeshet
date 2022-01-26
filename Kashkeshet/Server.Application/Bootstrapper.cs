@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Configuration;
 
 namespace Server.Application
 {
@@ -15,8 +16,8 @@ namespace Server.Application
     {
         public ServerBase Initialize()
         {
-            int port = 8080;
-            IPAddress iPAddress = IPAddress.Parse("127.0.0.1");
+            int port = int.Parse(ConfigurationManager.AppSettings["port"]);
+            IPAddress iPAddress = IPAddress.Parse(ConfigurationManager.AppSettings["ip"]);
             IRequestReceiver requestReceiver = new KashkeshetRequestReceiver();
             IResponseFactory responseFactory = new KashkeshetResponseFactory();
             IResponseSender responseSender = new KashkeshetResponseSender();
