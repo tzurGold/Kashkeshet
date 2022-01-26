@@ -9,11 +9,14 @@ namespace Server.BLL.Implementation.RequestHandlers
 {
     public class LoginRequestHandler : RequestHandlerBase
     {
+        private readonly IConnectionsSelector _connectionsSelector;
+
         public LoginRequestHandler(IResponseFactory responseFactory,
-            IResponseSender responseSender)
+            IResponseSender responseSender,
+            IConnectionsSelector connectionsSelector)
             : base(responseFactory, responseSender)
         {
-
+            _connectionsSelector = connectionsSelector;
         }
 
         public override void HandleRequest(Request request,
@@ -28,14 +31,19 @@ namespace Server.BLL.Implementation.RequestHandlers
             string clientName = request.From;
             foreach (var chat in chats)
             {
-                //var chatMembersConnections = 
+                IList<string> members = null;
+                if (chat is GroupChat)
+                {
+                    members = ((GroupChat)chat).GetMembers();
+                }
                 if (!(chat is GroupChat) || 
                     ((GroupChat)chat).GetMembers().Contains(clientName))
                 {
                     var responses = chat.GetChatHistory();
+                    var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
                     foreach (var historyResponse in responses)
                     {
-                        ResponseSender.SendResponse(response, connections);
+                        ResponseSender.SendResponse(response, recipientsConnections);
                     }
                 }
             }

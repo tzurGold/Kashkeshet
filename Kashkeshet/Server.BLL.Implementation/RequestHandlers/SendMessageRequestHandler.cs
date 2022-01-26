@@ -28,12 +28,11 @@ namespace Server.BLL.Implementation.RequestHandlers
             IDictionary<string, ICommunicator> connections,
             IList<IChat> chats)
         {
-            
             Response response = ResponseFactory.CreateResponse(request.From,
                 request.ClientMessage.Content,
                 request.ClientMessage.ContentType);
             IChat chat = _chatSelector.SelectChat(chats);
-            chat.SaveMessage(response);
+            chat?.SaveMessage(response);
             IList<string> members = _membersSelector.GetMembersNames(request.ClientMessage.To, chat);
             var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
             ResponseSender.SendResponse(response, recipientsConnections);
