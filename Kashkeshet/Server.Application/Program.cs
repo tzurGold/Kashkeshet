@@ -11,9 +11,10 @@ namespace Server.Application
 
             ServerBase server = bootstrapper.Initialize();
 
-            server.Listen();
-
-            server.Serve();
+            if(server.TryListen())
+            {
+                server.Serve();
+            }
         }
     }
 }

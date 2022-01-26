@@ -12,20 +12,28 @@ namespace Server.BLL.Implementation
     {
         private readonly TcpListener _listener;
         private readonly ClientHandlerBase _clientHandler;
-        private readonly Formatter _formatter; 
+        private readonly IFormatter _formatter; 
         public KashkeshetServer(int port,
             IPAddress ip,
             ClientHandlerBase clientHandler,
-            Formatter formatter) : base(port, ip)
+            IFormatter formatter) : base(port, ip)
         {
             _listener = new TcpListener(ip, port);
             _clientHandler = clientHandler;
             _formatter = formatter;
         }
 
-        public override void Listen()
+        public override bool TryListen()
         {
-            _listener.Start();
+            try
+            {
+                _listener.Start();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public override void Serve()

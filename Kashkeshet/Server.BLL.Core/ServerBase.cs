@@ -13,7 +13,7 @@ namespace Server.BLL.Core
             Ip = ip;
         }
 
-        public abstract void Listen();
+        public abstract bool TryListen();
         public abstract void Serve();
     }
 }
