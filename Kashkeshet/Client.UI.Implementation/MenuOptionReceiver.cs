@@ -27,7 +27,7 @@ namespace Client.UI.Implementation
                 string input = _inputReceiver.GetInput();
                 validInput = Enum.TryParse(input, out requestType);
                 if(!validInput || !Enum.IsDefined(typeof(RequestType), requestType)
-                    || requestType != RequestType.Login)
+                    || requestType == RequestType.Login)
                 {
                     validInput = false;
                     _outputDisplayer.DisplayOutput(_wrongInput);
