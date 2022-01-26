@@ -9,13 +9,19 @@ namespace Server.BLL.Implementation.RequestHandlers
     public class SendMessageRequestHandler : RequestHandlerBase
     {
         private readonly IConnectionsSelector _connectionsSelector;
+        private readonly IChatSelector _chatSelector;
+        private readonly IMembersSelector _membersSelector;
 
         public SendMessageRequestHandler(IResponseFactory responseFactory,
             IResponseSender responseSender,
-            IConnectionsSelector connectionsSelector)
+            IConnectionsSelector connectionsSelector,
+            IChatSelector chatSelector,
+            IMembersSelector membersSelector)
             : base(responseFactory, responseSender)
         {
             _connectionsSelector = connectionsSelector;
+            _chatSelector = chatSelector;
+            _membersSelector = membersSelector;
         }
 
         public override void HandleRequest(Request request,
@@ -26,11 +32,11 @@ namespace Server.BLL.Implementation.RequestHandlers
             Response response = ResponseFactory.CreateResponse(request.From,
                 request.ClientMessage.Content,
                 request.ClientMessage.ContentType);
-            
-            IList<string> members = request.ClientMessage.To
-          
-            //var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
-            //ResponseSender.SendResponse(response, recipientsConnections);
+            IChat chat = _chatSelector.SelectChat(chats);
+            chat.SaveMessage(response);
+            IList<string> members = _membersSelector.GetMembersNames(request.ClientMessage.To, chat);
+            var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
+            ResponseSender.SendResponse(response, recipientsConnections);
         }
     }
 }
