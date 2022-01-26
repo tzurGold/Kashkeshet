@@ -22,12 +22,13 @@ namespace Client.BLL.Implementation.MessageHandlers
 
         private IList<string> GetParticipants()
         {
-            string input = string.Empty;
+            string participant = string.Empty;
             IList<string> participants = new List<string>();
-            while (input != "0")
+            while (participant != "0")
             {
                 OutputDisplayer.DisplayOutput("Please enter participant name: (insert 0 to stop)");
-                participants.Add(InputReceiver.GetInput());
+                participant = InputReceiver.GetInput();
+                participants.Add(participant);
             }
             return participants;
         }
