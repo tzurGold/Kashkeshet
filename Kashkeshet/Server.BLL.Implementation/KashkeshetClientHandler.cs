@@ -25,12 +25,12 @@ namespace Server.BLL.Implementation
             try
             {
                 Request request = RequestReceiver.Receive(communicator);
-                RequestHandlers[RequestType.Login].HandleRequest(request, _conntections, out _chats);
-                RequestHandlers[request.RequestType].HandleRequest(request, _conntections, out _chats);
+                RequestHandlers[RequestType.Login].HandleRequest(request, _conntections, _chats);
+                RequestHandlers[request.RequestType].HandleRequest(request, _conntections, _chats);
                 while (request.RequestType != RequestType.Logout)
                 {
                     request = RequestReceiver.Receive(communicator);
-                    RequestHandlers[request.RequestType].HandleRequest(request, _conntections, out _chats);
+                    RequestHandlers[request.RequestType].HandleRequest(request, _conntections, _chats);
                 }
             }
             catch

@@ -7,6 +7,6 @@ namespace Server.BLL.Core
 {
     public interface IRequestHandler
     {
-        void HandleRequest(Request request, IDictionary<string, ICommunicator> connections, out IList<IChat> chats);
+        void HandleRequest(Request request, IDictionary<string, ICommunicator> connections, IList<IChat> chats);
     }
 }
