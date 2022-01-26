@@ -56,6 +56,10 @@ namespace Server.Application
                     {
                         RequestType.NewChat,
                         new NewChatRequestHandler(responseFactory, responseSender, connectionsSelector)
+                    },
+                    {
+                        RequestType.GetGroupsList,
+                        new GetGroupsListRequestHandler(responseFactory, responseSender, connectionsSelector)
                     }
                 };
             IList<ChatBase> chats = new List<ChatBase>();

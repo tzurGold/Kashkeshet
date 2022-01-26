@@ -4,7 +4,7 @@ using Common.DTOs;
 
 namespace Client.BLL.Implementation.MessageHandlers
 {
-    public class GetGroupListMessageReceiver : IMessageReceiver
+    public class GetGroupsListMessageReceiver : IMessageReceiver
     {
         public Message GetMessage()
         {

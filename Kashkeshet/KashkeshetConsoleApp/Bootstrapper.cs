@@ -77,7 +77,7 @@ namespace KashkeshetConsoleApp
                     },
                     {
                         RequestType.GetGroupsList,
-                        new GetGroupListMessageReceiver()
+                        new GetGroupsListMessageReceiver()
                     }
                 };
             try
