@@ -33,13 +33,14 @@ namespace KashkeshetConsoleApp
             };
             IOutput<string> writer = new ConsoleWriter();
             IInput<string> reader = new ConsoleReader();
+            ICleaner cleaner = new ConsoleCleaner();
             int port = int.Parse(ConfigurationManager.AppSettings["serverPort"]);
             string ip = ConfigurationManager.AppSettings["serverIp"];
             TcpClient client = new TcpClient();
             MenuDescriptionBase menuDescriptionBase = new KashkeshetMenuDescription(options);
             IOutputDisplayer outputDisplayer = new KashkeshetOutputDisplayer(writer);
             IMenuDisplayer menuDisplayer = new KashkeshetMenuDisplayer(menuDescriptionBase, outputDisplayer);
-            IInputReceiver inputReceiver = new KashkeshetInputReceiver(reader);
+            IInputReceiver inputReceiver = new KashkeshetInputReceiver(reader, cleaner);
             IOptionReceiver optionReceiver = new MenuOptionReceiver(inputReceiver, outputDisplayer);
             ClientConnectionBase clientConnection = new KashkeshetClientConnection(port, ip, client);
             IRequestFactory requestFactory = new KashkeshetRequestFactory();
