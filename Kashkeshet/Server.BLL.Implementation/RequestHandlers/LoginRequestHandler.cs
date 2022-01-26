@@ -28,15 +28,16 @@ namespace Server.BLL.Implementation.RequestHandlers
             string clientName = request.From;
             foreach (var chat in chats)
             {
+                //var chatMembersConnections = 
                 if (!(chat is GroupChat) || 
                     ((GroupChat)chat).GetMembers().Contains(clientName))
                 {
-
+                    var responses = chat.GetChatHistory();
+                    foreach (var historyResponse in responses)
+                    {
+                        _responseSender.SendResponse(response, connections);
+                    }
                 }
-            }
-            foreach (var historyResponse in responses)
-            {
-
             }
         }
     }
