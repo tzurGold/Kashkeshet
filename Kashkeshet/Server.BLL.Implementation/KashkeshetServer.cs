@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Common.Communicators.Abstractions;
 using Common.Communicators.Implementations;
-using Common.DTOs;
 using Server.BLL.Core;
 
 namespace Server.BLL.Implementation

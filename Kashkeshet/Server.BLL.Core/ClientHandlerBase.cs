@@ -6,27 +6,16 @@ namespace Server.BLL.Core
 {
     public abstract class ClientHandlerBase
     {
-        private readonly IRequestReceiver _requestReceiver;
-        private readonly IDictionary<RequestType, IResponder> _responders;
+        protected readonly IRequestReceiver RequestReceiver;
+        protected readonly IDictionary<RequestType, IRequestHandler> RequestHandlers;
 
-        protected ClientHandlerBase(IRequestReceiver requestReceiver, IDictionary<RequestType, IResponder> responders)
+        protected ClientHandlerBase(IRequestReceiver requestReceiver,
+            IDictionary<RequestType, IRequestHandler> requestHandlers)
         {
-            _requestReceiver = requestReceiver;
-            _responders = responders;
+            RequestReceiver = requestReceiver;
+            RequestHandlers = requestHandlers;
         }
 
         public abstract void HandleClient(ICommunicator communicator);
-
-        /*private void HandleClient(TcpClient client)
-        {
-            while (true)
-            {
-                Request request = (Request)communicator.Receive();
-                // addConnection()
-                // processing + 
-                // response
-
-            }
-        }*/
     }
 }
