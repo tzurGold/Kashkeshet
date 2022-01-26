@@ -5,6 +5,6 @@ namespace Server.BLL.Core
 {
     public interface IChatSelector
     {
-        ChatBase SelectChat(IList<ChatBase> chats);
+        ChatBase SelectChat(string chatName, IList<ChatBase> chats);
     }
 }

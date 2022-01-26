@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using Server.BLL.Core;
 using Server.BLL.Core.Chats;
+using System.Linq;
 
 namespace Server.BLL.Implementation
 {
     public class KashkeshetChatSelector : IChatSelector
     {
-        public ChatBase SelectChat(IList<ChatBase> chats)
+        public ChatBase SelectChat(string chatName, IList<ChatBase> chats)
         {
-            throw new System.NotImplementedException();
+            return chats.Where(chat => chat.Name == chatName).First();
         }
     }
 }

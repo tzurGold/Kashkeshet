@@ -31,7 +31,7 @@ namespace Server.BLL.Implementation.RequestHandlers
             Response response = ResponseFactory.CreateResponse(request.From,
                 request.ClientMessage.Content,
                 request.ClientMessage.ContentType);
-            ChatBase chat = _chatSelector.SelectChat(chats);
+            ChatBase chat = _chatSelector.SelectChat(request.ClientMessage.To, chats);
             chat?.SaveMessage(response);
             IList<string> members = _membersSelector.GetMembersNames(request.ClientMessage.To, chat);
             var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
