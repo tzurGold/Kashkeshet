@@ -2,6 +2,7 @@
 using Server.BLL.Core;
 using Server.BLL.Core.Chats;
 using Server.BLL.Implementation;
+using Server.BLL.Implementation.Chats;
 using Server.BLL.Implementation.RequestHandlers;
 using System.Collections.Generic;
 using System.Net;
@@ -57,6 +58,8 @@ namespace Server.Application
                     }
                 };
             IList<ChatBase> chats = new List<ChatBase>();
+            var globalChat = new GlobalChat("Everyone", new Queue<Response>());
+            chats.Add(globalChat);
             ClientHandlerBase clientHandler = new KashkeshetClientHandler(requestReceiver, requestHandlers, chats);
             IFormatter formatter = new BinaryFormatter();
             ServerBase serverBase = new KashkeshetServer(port, iPAddress, clientHandler, formatter);
