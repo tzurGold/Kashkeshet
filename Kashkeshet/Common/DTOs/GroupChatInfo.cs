@@ -6,12 +6,12 @@ namespace Common.DTOs
     [Serializable]
     public class GroupChatInfo
     {
-        public readonly bool IsVolatile;
+        public readonly int DeletionTime;
         public readonly IList<string> Participants;
 
-        public GroupChatInfo(bool isVolatile, IList<string> participants)
+        public GroupChatInfo(int deletionTime, IList<string> participants)
         {
-            IsVolatile = isVolatile;
+            DeletionTime = deletionTime;
             Participants = participants;
         }
     }

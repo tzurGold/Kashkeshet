@@ -21,7 +21,13 @@ namespace Client.BLL.Implementation.MessageHandlers
         {
             string groupName = GetGroupName();
             IList<string> participants = GetParticipants();
-            return new Message(groupName, participants, MessageContentType.Text);
+            int deletionTime = 0;
+            if (IsChatVolatile())
+            {
+                deletionTime = GetDeletionTime();
+            }
+            GroupChatInfo groupChatInfo = new GroupChatInfo(deletionTime, participants);
+            return new Message(groupName, groupChatInfo, MessageContentType.Text);
         }
 
         private IList<string> GetParticipants()
@@ -39,8 +45,31 @@ namespace Client.BLL.Implementation.MessageHandlers
 
         private string GetGroupName()
         {
-            _outputDisplayer.DisplayOutput("Please enter group name: ");
+            _outputDisplayer.DisplayOutput("Please enter group name:");
             return _inputReceiver.GetInput();
+        }
+
+        private bool IsChatVolatile()
+        {
+            _outputDisplayer.DisplayOutput("Is chat volatile? 0 for No, any other key for Yes");
+            return _inputReceiver.GetInput() != "0";
+        }
+
+        private int GetDeletionTime()
+        {
+            _outputDisplayer.DisplayOutput("Please enter deletion time in milliseconds:");
+            bool validInput = false;
+            int deletionTime = 0;
+            while (!validInput)
+            {
+                string input = _inputReceiver.GetInput();
+                validInput = int.TryParse(input, out deletionTime);
+                if (!validInput)
+                {
+                    _outputDisplayer.DisplayOutput("Wrong input, Try again");
+                }
+            }
+            return deletionTime;
         }
     }
 }
