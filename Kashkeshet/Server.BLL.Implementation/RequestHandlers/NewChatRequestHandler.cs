@@ -37,10 +37,20 @@ namespace Server.BLL.Implementation.RequestHandlers
                 response.From,
                 request.From,
                 response.Content);
-            IList<string> members = (IList<string>)request.ClientMessage.Content;
+            GroupChatInfo groupChatInfo = (GroupChatInfo)request.ClientMessage.Content;
+            IList<string> members = groupChatInfo.Participants;
             members.Add(request.From);
-            ChatBase groupChat = new GroupChat(chatName, new Queue<Response>(), members);
-            chats.Add(groupChat);
+            var chatMessages = new Queue<ChatMessage>();
+            ChatBase chat;
+            if (groupChatInfo.DeletionTime == 0)
+            {
+                chat = new GroupChat(chatName, chatMessages, members);
+            }
+            else
+            {
+                chat = new VolatileGroupChat(chatName, chatMessages, members, groupChatInfo.DeletionTime);
+            }
+            chats.Add(chat);
             var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
             ResponseSender.SendResponse(response, recipientsConnections);
         }

@@ -8,7 +8,7 @@ namespace Server.BLL.Implementation.Chats
     public class GroupChat : ChatInMemoryBase
     {
         private readonly IList<string> _members;
-        public GroupChat(string name, Queue<Response> responses, IList<string> members) : base(name, responses)
+        public GroupChat(string name, Queue<ChatMessage> chatMessages, IList<string> members) : base(name, chatMessages)
         {
             _members = members;
         }

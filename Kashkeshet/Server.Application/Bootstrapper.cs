@@ -68,7 +68,7 @@ namespace Server.Application
                     }
                 };
             IList<ChatBase> chats = new List<ChatBase>();
-            var globalChat = new GlobalChat("Everyone", new Queue<Response>());
+            var globalChat = new GlobalChat("Everyone", new Queue<ChatMessage>());
             chats.Add(globalChat);
             ClientHandlerBase clientHandler = new KashkeshetClientHandler(requestReceiver, requestHandlers, chats);
             IFormatter formatter = new BinaryFormatter();
