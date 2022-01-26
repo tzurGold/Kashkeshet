@@ -5,15 +5,19 @@ using Common.DTOs;
 
 namespace Client.BLL.Implementation.MessageHandlers
 {
-    public class CreateChatMessageReceiver : MessageReceiverBase
+    public class CreateChatMessageReceiver : IMessageReceiver
     {
+        private readonly IInputReceiver _inputReceiver;
+        private readonly IOutputDisplayer _outputDisplayer;
+
         public CreateChatMessageReceiver(IInputReceiver inputReceiver,
             IOutputDisplayer outputDisplayer)
-            : base(inputReceiver, outputDisplayer)
         {
+            _inputReceiver = inputReceiver;
+            _outputDisplayer = outputDisplayer;
         }
 
-        public override Message GetMessage()
+        public Message GetMessage()
         {
             string groupName = GetGroupName();
             IList<string> participants = GetParticipants();
@@ -26,8 +30,8 @@ namespace Client.BLL.Implementation.MessageHandlers
             IList<string> participants = new List<string>();
             while (participant != "0")
             {
-                OutputDisplayer.DisplayOutput("Please enter participant name: (insert 0 to stop)");
-                participant = InputReceiver.GetInput();
+                _outputDisplayer.DisplayOutput("Please enter participant name: (insert 0 to stop)");
+                participant = _inputReceiver.GetInput();
                 participants.Add(participant);
             }
             return participants;
@@ -35,8 +39,8 @@ namespace Client.BLL.Implementation.MessageHandlers
 
         private string GetGroupName()
         {
-            OutputDisplayer.DisplayOutput("Please enter group name: ");
-            return InputReceiver.GetInput();
+            _outputDisplayer.DisplayOutput("Please enter group name: ");
+            return _inputReceiver.GetInput();
         }
     }
 }

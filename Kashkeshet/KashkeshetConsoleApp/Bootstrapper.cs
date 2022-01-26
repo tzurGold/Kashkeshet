@@ -28,12 +28,13 @@ namespace KashkeshetConsoleApp
                 "Send message in private chat",
                 "Send message in group chat",
                 "Create new group chat",
+                "Get your groups list",
                 "Logout"
             };
             IOutput<string> writer = new ConsoleWriter();
             IInput<string> reader = new ConsoleReader();
-            int port = int.Parse(ConfigurationManager.AppSettings["port"]);
-            string ip = ConfigurationManager.AppSettings["ip"];
+            int port = int.Parse(ConfigurationManager.AppSettings["serverPort"]);
+            string ip = ConfigurationManager.AppSettings["serverIp"];
             TcpClient client = new TcpClient();
             MenuDescriptionBase menuDescriptionBase = new KashkeshetMenuDescription(options);
             IOutputDisplayer outputDisplayer = new KashkeshetOutputDisplayer(writer);
@@ -51,8 +52,8 @@ namespace KashkeshetConsoleApp
                     { MessageContentType.Text, new TextMessageProvider(inputReceiver, outputDisplayer) },
                     { MessageContentType.File, new FileMessageProvider(inputReceiver, outputDisplayer) }
                 };
-            IDictionary<RequestType, MessageReceiverBase> messageHandlers =
-                new Dictionary<RequestType, MessageReceiverBase>
+            IDictionary<RequestType, IMessageReceiver> messageHandlers =
+                new Dictionary<RequestType, IMessageReceiver>
                 {
                     {
                         RequestType.GlobalChat,
@@ -72,7 +73,11 @@ namespace KashkeshetConsoleApp
                     },
                     {
                         RequestType.Logout,
-                        new LogoutMessageReceiver(inputReceiver, outputDisplayer)
+                        new LogoutMessageReceiver()
+                    },
+                    {
+                        RequestType.GetGroupsList,
+                        new GetGroupListMessageReceiver()
                     }
                 };
             try

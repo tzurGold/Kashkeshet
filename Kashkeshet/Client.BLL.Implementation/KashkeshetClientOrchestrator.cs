@@ -17,7 +17,7 @@ namespace Client.BLL.Implementation
         private readonly IResponseHandler _responseHandler;
         private readonly ICommunicator _communicator;
         private readonly string _clientName;
-        private readonly IDictionary<RequestType, MessageReceiverBase> _messageHandlers;
+        private readonly IDictionary<RequestType, IMessageReceiver> _messageHandlers;
 
         public KashkeshetClientOrchestrator(IMenuDisplayer menuDisplayer,
             IOptionReceiver optionReceiver,
@@ -26,7 +26,7 @@ namespace Client.BLL.Implementation
             IResponseHandler responseHandler,
             ICommunicator communicator,
             string clientName,
-            IDictionary<RequestType, MessageReceiverBase> messageHandlers)
+            IDictionary<RequestType, IMessageReceiver> messageHandlers)
         {
             _menuDisplayer = menuDisplayer;
             _optionReceiver = optionReceiver;

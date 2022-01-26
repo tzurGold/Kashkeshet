@@ -5,19 +5,22 @@ using Common.DTOs;
 
 namespace Client.BLL.Core.MessageHandlers
 {
-    public abstract class CommonMessageReceiverBase : MessageReceiverBase
+    public abstract class CommonMessageReceiverBase : IMessageReceiver
     {
+        protected readonly IInputReceiver InputReceiver;
+        protected readonly IOutputDisplayer OutputDisplayer;
         protected readonly IDictionary<MessageContentType, MessageContentProviderBase> MessageContentProviders;
 
         protected CommonMessageReceiverBase(IInputReceiver inputReceiver,
             IOutputDisplayer outputDisplayer,
             IDictionary<MessageContentType, MessageContentProviderBase> messageContentProviders)
-            : base(inputReceiver, outputDisplayer)
         {
+            InputReceiver = inputReceiver;
+            OutputDisplayer = outputDisplayer;
             MessageContentProviders = messageContentProviders;
         }
 
-        public override Message GetMessage()
+        public Message GetMessage()
         {
             MessageContentType contentType = GetContentType();
             object content = MessageContentProviders[contentType].ProvideContent();

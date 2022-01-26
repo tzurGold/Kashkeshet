@@ -4,11 +4,11 @@ using Common.DTOs;
 
 namespace Client.BLL.Implementation.MessageHandlers
 {
-    public class LogoutMessageReceiver : IMessageReceiver
+    public class GetGroupListMessageReceiver : IMessageReceiver
     {
         public Message GetMessage()
         {
-            return new Message("Everyone", "logout", MessageContentType.Text);
+            return new Message("Server", "Please send groups list", MessageContentType.Text);
         }
     }
 }
