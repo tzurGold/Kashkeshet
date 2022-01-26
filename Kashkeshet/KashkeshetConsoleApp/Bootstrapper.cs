@@ -14,6 +14,7 @@ using Common.DTOs;
 using Client.BLL.Core.MessageHandlers;
 using Client.BLL.Implementation.MessageHandlers;
 using Client.BLL.Implementation.MessageContentProviders;
+using System.Configuration;
 
 namespace KashkeshetConsoleApp
 {
@@ -31,8 +32,8 @@ namespace KashkeshetConsoleApp
             };
             IOutput<string> writer = new ConsoleWriter();
             IInput<string> reader = new ConsoleReader();
-            int port = 8080;
-            string ip = "127.0.0.1";
+            int port = int.Parse(ConfigurationManager.AppSettings["port"]);
+            string ip = ConfigurationManager.AppSettings["ip"];
             TcpClient client = new TcpClient();
             MenuDescriptionBase menuDescriptionBase = new KashkeshetMenuDescription(options);
             IOutputDisplayer outputDisplayer = new KashkeshetOutputDisplayer(writer);
