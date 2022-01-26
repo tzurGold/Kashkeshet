@@ -12,7 +12,7 @@ namespace Server.BLL.Implementation
         private readonly IDictionary<string, ICommunicator> _conntections;
         private readonly IList<IChat> _chats;
         public KashkeshetClientHandler(IRequestReceiver requestReceiver,
-            IDictionary<RequestType, IRequestHandler> requestHandlers,
+            IDictionary<RequestType, RequestHandlerBase> requestHandlers,
             IList<IChat> chats)
             : base(requestReceiver, requestHandlers)
         {

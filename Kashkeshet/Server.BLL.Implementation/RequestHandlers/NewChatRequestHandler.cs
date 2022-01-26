@@ -4,15 +4,19 @@ using Common.DTOs;
 using Server.BLL.Core;
 using Server.BLL.Core.Chats;
 using Server.BLL.Implementation.Chats;
+using System.Linq;
 
 namespace Server.BLL.Implementation.RequestHandlers
 {
     public class NewChatRequestHandler : RequestHandlerBase
     {
+        private readonly IConnectionsSelector _connectionsSelector;
         public NewChatRequestHandler(IResponseFactory responseFactory,
-            IResponseSender responseSender)
+            IResponseSender responseSender,
+            IConnectionsSelector connectionsSelector)
             : base(responseFactory, responseSender)
         {
+            _connectionsSelector = connectionsSelector;
         }
 
         public override void HandleRequest(Request request,
@@ -24,9 +28,11 @@ namespace Server.BLL.Implementation.RequestHandlers
                 responseContent,
                 request.ClientMessage.ContentType);
             IList<string> members = (IList<string>)request.ClientMessage.Content;
+            members.Add(request.From);
             IChat groupChat = new GroupChat(new Queue<Response>(), members);
             chats.Add(groupChat);
-            //ResponseSender.SendResponse(response, );
+            var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
+            ResponseSender.SendResponse(response, recipientsConnections);
         }
     }
 }

@@ -10,12 +10,16 @@ namespace Server.BLL.Implementation
         public IDictionary<string, ICommunicator> GetRecipientsCommunicators(IDictionary<string, ICommunicator> connections,
             IList<string> recipients)
         {
-            var recipientsConnections = connections;
-            foreach (var recipient in recipientsConnections.Keys)
+            if (recipients == null)
             {
-                if (!recipients.Contains(recipient))
+                return connections;
+            }
+            var recipientsConnections = new Dictionary<string, ICommunicator>();
+            foreach (var recipient in connections.Keys)
+            {
+                if (recipients.Contains(recipient))
                 {
-                    recipientsConnections.Remove(recipient);
+                    recipientsConnections[recipient] = connections[recipient];
                 }
             }
             return recipientsConnections;
