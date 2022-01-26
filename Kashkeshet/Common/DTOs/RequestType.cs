@@ -9,6 +9,7 @@ namespace Common.DTOs
         PrivateChat = 2,
         GroupChat = 3,
         NewChat = 4,
-        Logout = 5
+        Logout = 5,
+        Login = 6
     }
 }
