@@ -7,10 +7,10 @@ namespace Server.BLL.Core
     public abstract class ClientHandlerBase
     {
         protected readonly IRequestReceiver RequestReceiver;
-        protected readonly IDictionary<RequestType, IRequestHandler> RequestHandlers;
+        protected readonly IDictionary<RequestType, RequestHandlerBase> RequestHandlers;
 
         protected ClientHandlerBase(IRequestReceiver requestReceiver,
-            IDictionary<RequestType, IRequestHandler> requestHandlers)
+            IDictionary<RequestType, RequestHandlerBase> requestHandlers)
         {
             RequestReceiver = requestReceiver;
             RequestHandlers = requestHandlers;
