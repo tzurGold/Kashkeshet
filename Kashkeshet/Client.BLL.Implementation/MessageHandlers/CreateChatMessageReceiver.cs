@@ -57,7 +57,7 @@ namespace Client.BLL.Implementation.MessageHandlers
 
         private int GetDeletionTime()
         {
-            _outputDisplayer.DisplayOutput("Please enter deletion time in milliseconds:");
+            _outputDisplayer.DisplayOutput("Please enter deletion time in seconds:");
             bool validInput = false;
             int deletionTime = 0;
             while (!validInput)
