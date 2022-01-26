@@ -4,7 +4,6 @@ using Common.DTOs;
 using Server.BLL.Core;
 using Server.BLL.Core.Chats;
 using Server.BLL.Implementation.Chats;
-using System.Linq;
 
 namespace Server.BLL.Implementation.RequestHandlers
 {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Common.Communicators.Abstractions;
 using Server.BLL.Core;
-using System.Linq;
 
 namespace Server.BLL.Implementation
 {

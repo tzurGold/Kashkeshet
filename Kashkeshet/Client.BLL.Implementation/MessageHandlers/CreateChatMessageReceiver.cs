@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Client.BLL.Core;
+﻿using System.Collections.Generic;
 using Client.BLL.Core.MessageHandlers;
 using Client.UI.Core;
 using Common.DTOs;

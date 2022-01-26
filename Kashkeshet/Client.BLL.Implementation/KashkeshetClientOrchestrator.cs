@@ -3,7 +3,6 @@ using Client.UI.Core;
 using System.Collections.Generic;
 using Common.DTOs;
 using Client.BLL.Core.MessageHandlers;
-using System.Net.Sockets;
 using System.Threading.Tasks;
 using Common.Communicators.Abstractions;
 
