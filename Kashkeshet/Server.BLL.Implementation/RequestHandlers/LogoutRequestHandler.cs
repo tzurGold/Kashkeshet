@@ -6,25 +6,25 @@ using Server.BLL.Core.Chats;
 
 namespace Server.BLL.Implementation.RequestHandlers
 {
-    public class LogoutRequestHandler : IRequestHandler
+    public class LogoutRequestHandler : RequestHandlerBase
     {
-        private readonly IResponseSender _responseSender;
-
-        public LogoutRequestHandler(IResponseSender responseSender)
+        public LogoutRequestHandler(IResponseFactory responseFactory,
+            IResponseSender responseSender)
+            : base(responseFactory, responseSender)
         {
-            _responseSender = responseSender;
+
         }
 
-        public void HandleRequest(Request request,
+        public override void HandleRequest(Request request,
             IDictionary<string, ICommunicator> connections,
             IList<IChat> chats)
         {
             string responseContent = $"{request.From} {request.ClientMessage.Content}";
-            Response response = new Response("SYSTEM",
+            Response response = ResponseFactory.CreateResponse("SYSTEM",
                 responseContent,
                 request.ClientMessage.ContentType);
             connections.Remove(request.From);
-            _responseSender.SendResponse(response, connections);
+            ResponseSender.SendResponse(response, connections);
         }
     }
 }
