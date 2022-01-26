@@ -56,7 +56,7 @@ namespace Server.Application
                         new NewChatRequestHandler(responseFactory, responseSender, connectionsSelector)
                     }
                 };
-            IList<IChat> chats = new List<IChat>();
+            IList<ChatBase> chats = new List<ChatBase>();
             ClientHandlerBase clientHandler = new KashkeshetClientHandler(requestReceiver, requestHandlers, chats);
             IFormatter formatter = new BinaryFormatter();
             ServerBase serverBase = new KashkeshetServer(port, iPAddress, clientHandler, formatter);

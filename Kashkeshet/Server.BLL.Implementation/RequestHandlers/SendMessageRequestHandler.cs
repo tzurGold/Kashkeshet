@@ -26,12 +26,12 @@ namespace Server.BLL.Implementation.RequestHandlers
 
         public override void HandleRequest(Request request,
             IDictionary<string, ICommunicator> connections,
-            IList<IChat> chats)
+            IList<ChatBase> chats)
         {
             Response response = ResponseFactory.CreateResponse(request.From,
                 request.ClientMessage.Content,
                 request.ClientMessage.ContentType);
-            IChat chat = _chatSelector.SelectChat(chats);
+            ChatBase chat = _chatSelector.SelectChat(chats);
             chat?.SaveMessage(response);
             IList<string> members = _membersSelector.GetMembersNames(request.ClientMessage.To, chat);
             var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);

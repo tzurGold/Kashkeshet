@@ -10,10 +10,10 @@ namespace Server.BLL.Implementation
     public class KashkeshetClientHandler : ClientHandlerBase
     {
         private readonly IDictionary<string, ICommunicator> _conntections;
-        private readonly IList<IChat> _chats;
+        private readonly IList<ChatBase> _chats;
         public KashkeshetClientHandler(IRequestReceiver requestReceiver,
             IDictionary<RequestType, RequestHandlerBase> requestHandlers,
-            IList<IChat> chats)
+            IList<ChatBase> chats)
             : base(requestReceiver, requestHandlers)
         {
             _conntections = new ConcurrentDictionary<string, ICommunicator>();

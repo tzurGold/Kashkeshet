@@ -18,6 +18,6 @@ namespace Server.BLL.Core
         
         public abstract void HandleRequest(Request request,
             IDictionary<string, ICommunicator> connections,
-            IList<IChat> chats);
+            IList<ChatBase> chats);
     }
 }

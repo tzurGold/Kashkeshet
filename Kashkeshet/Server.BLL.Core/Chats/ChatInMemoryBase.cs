@@ -4,21 +4,21 @@ using System.Linq;
 
 namespace Server.BLL.Core.Chats
 {
-    public abstract class ChatInMemoryBase : IChat
+    public abstract class ChatInMemoryBase : ChatBase
     {
         private readonly Queue<Response> _responses;
 
-        protected ChatInMemoryBase(Queue<Response> responses)
+        protected ChatInMemoryBase(string name, Queue<Response> responses) : base(name)
         {
             _responses = responses;
         }
 
-        public virtual IEnumerable<Response> GetChatHistory()
+        public override IEnumerable<Response> GetChatHistory()
         {
             return _responses.ToList();
         }
 
-        public virtual void SaveMessage(Response response)
+        public override void SaveMessage(Response response)
         {
             _responses.Enqueue(response);
         }

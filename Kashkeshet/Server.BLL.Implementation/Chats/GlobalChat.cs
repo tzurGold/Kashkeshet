@@ -6,7 +6,7 @@ namespace Server.BLL.Implementation.Chats
 {
     public class GlobalChat : ChatInMemoryBase
     {
-        public GlobalChat(Queue<Response> responses) : base(responses)
+        public GlobalChat(string name, Queue<Response> responses) : base(name, responses)
         {
 
         }

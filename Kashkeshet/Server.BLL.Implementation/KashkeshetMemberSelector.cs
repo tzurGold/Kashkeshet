@@ -7,7 +7,7 @@ namespace Server.BLL.Implementation
 {
     public class KashkeshetMemberSelector : IMembersSelector
     {
-        public IList<string> GetMembersNames(string to, IChat chat)
+        public IList<string> GetMembersNames(string to, ChatBase chat)
         {
             if (to == "Everyone")
             {

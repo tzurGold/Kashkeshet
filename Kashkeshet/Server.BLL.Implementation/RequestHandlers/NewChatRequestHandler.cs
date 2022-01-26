@@ -21,15 +21,16 @@ namespace Server.BLL.Implementation.RequestHandlers
 
         public override void HandleRequest(Request request,
             IDictionary<string, ICommunicator> connections,
-            IList<IChat> chats)
+            IList<ChatBase> chats)
         {
-            string responseContent = $"Chat {request.ClientMessage.To} created";
+            string chatName = request.ClientMessage.To;
+            string responseContent = $"Chat {chatName} created";
             Response response = ResponseFactory.CreateResponse("SYSTEM",
                 responseContent,
                 request.ClientMessage.ContentType);
             IList<string> members = (IList<string>)request.ClientMessage.Content;
             members.Add(request.From);
-            IChat groupChat = new GroupChat(new Queue<Response>(), members);
+            ChatBase groupChat = new GroupChat(chatName, new Queue<Response>(), members);
             chats.Add(groupChat);
             var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
             ResponseSender.SendResponse(response, recipientsConnections);

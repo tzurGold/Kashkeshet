@@ -21,7 +21,7 @@ namespace Server.BLL.Implementation.RequestHandlers
 
         public override void HandleRequest(Request request,
             IDictionary<string, ICommunicator> connections,
-            IList<IChat> chats)
+            IList<ChatBase> chats)
         {
             string responseContent = $"{request.From} logged in";
             Response response = ResponseFactory.CreateResponse("SYSTEM",
