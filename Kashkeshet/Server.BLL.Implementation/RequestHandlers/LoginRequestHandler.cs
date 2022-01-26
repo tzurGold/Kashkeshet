@@ -43,7 +43,7 @@ namespace Server.BLL.Implementation.RequestHandlers
                     var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
                     foreach (var historyResponse in responses)
                     {
-                        ResponseSender.SendResponse(response, recipientsConnections);
+                        ResponseSender.SendResponse(historyResponse, recipientsConnections);
                     }
                 }
             }
