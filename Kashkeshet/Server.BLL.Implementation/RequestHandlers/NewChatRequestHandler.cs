@@ -24,7 +24,8 @@ namespace Server.BLL.Implementation.RequestHandlers
         {
             string chatName = request.ClientMessage.To;
             string responseContent = $"Chat {chatName} created";
-            Response response = ResponseFactory.CreateResponse("SYSTEM",
+            Response response = ResponseFactory.CreateResponse(chatName,
+                "System",
                 responseContent,
                 request.ClientMessage.ContentType);
             IList<string> members = (IList<string>)request.ClientMessage.Content;

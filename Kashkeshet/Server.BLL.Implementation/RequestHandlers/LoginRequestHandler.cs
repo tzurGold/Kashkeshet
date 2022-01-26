@@ -24,18 +24,16 @@ namespace Server.BLL.Implementation.RequestHandlers
             IList<ChatBase> chats)
         {
             string responseContent = $"{request.From} logged in";
-            Response response = ResponseFactory.CreateResponse("SYSTEM",
+            Response response = ResponseFactory.CreateResponse("GlobalChat",
+                "System",
                 responseContent,
                 MessageContentType.Text);
             ResponseSender.SendResponse(response, connections);
             string clientName = request.From;
+            IList<string> members = new List<string>();
+            members.Add(clientName);
             foreach (var chat in chats)
-            {
-                IList<string> members = null;
-                if (chat is GroupChat)
-                {
-                    members = ((GroupChat)chat).GetMembers();
-                }
+            { 
                 if (!(chat is GroupChat) || 
                     ((GroupChat)chat).GetMembers().Contains(clientName))
                 {

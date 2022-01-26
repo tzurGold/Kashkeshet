@@ -22,7 +22,7 @@ namespace Client.BLL.Implementation
             while (true)
             {
                 Response response = (Response)_communicator.Receive();
-                string output = $"{response.From}:{Environment.NewLine}{response.Content}";
+                string output = $"{response.ChatName}/{response.From}:{Environment.NewLine}{response.Content}";
                 _outputDisplayer.DisplayOutput(output);
             }
         }

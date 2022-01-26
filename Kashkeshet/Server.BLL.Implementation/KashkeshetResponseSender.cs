@@ -18,7 +18,7 @@ namespace Server.BLL.Implementation
                 catch
                 {
                     connections.Remove(client);
-                    Response logout = new Response("SYSTEM", $"{client} logout", MessageContentType.Text);
+                    Response logout = new Response("GlobalChat","System", $"{client} logout", MessageContentType.Text);
                     SendResponse(logout, connections);
                 }
             }

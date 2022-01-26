@@ -4,6 +4,6 @@ namespace Server.BLL.Core
 {
     public interface IResponseFactory
     {
-        Response CreateResponse(string fromWho, object content, MessageContentType contentType);
+        Response CreateResponse(string chatName, string fromWho, object content, MessageContentType contentType);
     }
 }

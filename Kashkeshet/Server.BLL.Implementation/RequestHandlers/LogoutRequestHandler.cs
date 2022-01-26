@@ -20,7 +20,8 @@ namespace Server.BLL.Implementation.RequestHandlers
             IList<ChatBase> chats)
         {
             string responseContent = $"{request.From} {request.ClientMessage.Content}";
-            Response response = ResponseFactory.CreateResponse("SYSTEM",
+            Response response = ResponseFactory.CreateResponse("GloabalChat",
+                "System",
                 responseContent,
                 request.ClientMessage.ContentType);
             connections.Remove(request.From);

@@ -5,9 +5,9 @@ namespace Server.BLL.Implementation
 {
     public class KashkeshetResponseFactory : IResponseFactory
     {
-        public Response CreateResponse(string fromWho, object content, MessageContentType contentType)
+        public Response CreateResponse(string chatName, string fromWho, object content, MessageContentType contentType)
         {
-            return new Response(fromWho, content, contentType);
+            return new Response(chatName, fromWho, content, contentType);
         }
     }
 }
