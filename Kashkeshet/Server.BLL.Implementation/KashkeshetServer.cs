@@ -1,9 +1,11 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Common.Communicators.Abstractions;
 using Common.Communicators.Implementations;
+using log4net;
 using Server.BLL.Core;
 
 namespace Server.BLL.Implementation
@@ -12,7 +14,9 @@ namespace Server.BLL.Implementation
     {
         private readonly TcpListener _listener;
         private readonly ClientHandlerBase _clientHandler;
-        private readonly IFormatter _formatter; 
+        private readonly IFormatter _formatter;
+        private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         public KashkeshetServer(int port,
             IPAddress ip,
             ClientHandlerBase clientHandler,
@@ -30,8 +34,9 @@ namespace Server.BLL.Implementation
                 _listener.Start();
                 return true;
             }
-            catch
+            catch (SocketException exception)
             {
+                _log.Error(exception);
                 return false;
             }
         }
@@ -41,6 +46,7 @@ namespace Server.BLL.Implementation
             while (true)
             {
                 TcpClient client = _listener.AcceptTcpClient();
+                _log.DebugFormat("Client {0} accepted", client.GetHashCode());
                 ICommunicator communicator = new TcpCommunicator(client, _formatter);
                 Task.Run(() => _clientHandler.HandleClient(communicator));
             }
