@@ -22,7 +22,7 @@ namespace Server.Application
             IResponseSender responseSender = new KashkeshetResponseSender();
             IConnectionsSelector connectionsSelector = new KashkeshetConnectionsSelector();
             IMembersSelector membersSelector = new KashkeshetMemberSelector();
-            IChatSelector chatSelector = null;
+            IChatSelector chatSelector = new KashkeshetChatSelector();
             RequestHandlerBase sendMessageRequestHandler = 
                 new SendMessageRequestHandler(responseFactory,
                 responseSender,
