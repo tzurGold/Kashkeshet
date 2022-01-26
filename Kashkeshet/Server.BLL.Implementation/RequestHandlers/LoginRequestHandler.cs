@@ -3,14 +3,15 @@ using Common.Communicators.Abstractions;
 using Common.DTOs;
 using Server.BLL.Core;
 using Server.BLL.Core.Chats;
+using Server.BLL.Implementation.Chats;
 
 namespace Server.BLL.Implementation.RequestHandlers
 {
-    public class LogoutRequestHandler : IRequestHandler
+    public class LoginRequestHandler : IRequestHandler
     {
         private readonly IResponseSender _responseSender;
 
-        public LogoutRequestHandler(IResponseSender responseSender)
+        public LoginRequestHandler(IResponseSender responseSender)
         {
             _responseSender = responseSender;
         }
@@ -19,12 +20,24 @@ namespace Server.BLL.Implementation.RequestHandlers
             IDictionary<string, ICommunicator> connections,
             IList<IChat> chats)
         {
-            string responseContent = $"{request.From} {request.ClientMessage.Content}";
+            string responseContent = $"{request.From} logged in";
             Response response = new Response("SYSTEM",
                 responseContent,
-                request.ClientMessage.ContentType);
-            connections.Remove(request.From);
+                MessageContentType.Text);
             _responseSender.SendResponse(response, connections);
+            string clientName = request.From;
+            foreach (var chat in chats)
+            {
+                if (!(chat is GroupChat) || 
+                    ((GroupChat)chat).GetMembers().Contains(clientName))
+                {
+
+                }
+            }
+            foreach (var historyResponse in responses)
+            {
+
+            }
         }
     }
 }

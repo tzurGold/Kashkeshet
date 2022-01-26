@@ -8,7 +8,8 @@ namespace Server.Application
     {
         public ServerBase Initialize()
         {
-            return new KashkeshetServer(8080, IPAddress.Parse("127.0.0.1"));
+            //return new KashkeshetServer(8080, IPAddress.Parse("127.0.0.1"));
+            return null;
         }
     }
 }

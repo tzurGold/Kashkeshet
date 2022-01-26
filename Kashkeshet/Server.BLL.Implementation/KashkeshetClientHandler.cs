@@ -10,7 +10,7 @@ namespace Server.BLL.Implementation
     public class KashkeshetClientHandler : ClientHandlerBase
     {
         private readonly IDictionary<string, ICommunicator> _conntections;
-        private IList<IChat> _chats;
+        private readonly IList<IChat> _chats;
         public KashkeshetClientHandler(IRequestReceiver requestReceiver,
             IDictionary<RequestType, IRequestHandler> requestHandlers,
             IList<IChat> chats)
@@ -25,6 +25,7 @@ namespace Server.BLL.Implementation
             try
             {
                 Request request = RequestReceiver.Receive(communicator);
+                _conntections.Add(request.From, communicator);
                 RequestHandlers[RequestType.Login].HandleRequest(request, _conntections, _chats);
                 RequestHandlers[request.RequestType].HandleRequest(request, _conntections, _chats);
                 while (request.RequestType != RequestType.Logout)

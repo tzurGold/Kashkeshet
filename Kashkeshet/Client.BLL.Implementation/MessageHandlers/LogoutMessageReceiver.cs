@@ -14,7 +14,7 @@ namespace Client.BLL.Implementation.MessageHandlers
 
         public override Message GetMessage()
         {
-            return new Message("Everyone", "Logout", MessageContentType.Text);
+            return new Message("Everyone", "logout", MessageContentType.Text);
         }
     }
 }
