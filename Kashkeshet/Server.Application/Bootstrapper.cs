@@ -9,13 +9,18 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Configuration;
+using log4net;
+using System.Reflection;
 
 namespace Server.Application
 {
     public class Bootstrapper
     {
+        private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         public ServerBase Initialize()
         {
+            _log.Debug("Initialization starts");
             int port = int.Parse(ConfigurationManager.AppSettings["port"]);
             IPAddress iPAddress = IPAddress.Parse(ConfigurationManager.AppSettings["ip"]);
             IRequestReceiver requestReceiver = new KashkeshetRequestReceiver();

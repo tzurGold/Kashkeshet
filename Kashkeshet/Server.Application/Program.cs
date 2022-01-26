@@ -8,6 +8,7 @@ namespace Server.Application
     public class Program
     {
         private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         public static void Main(string[] args)
         {
             XmlConfigurator.Configure(); // only once
