@@ -14,5 +14,11 @@ namespace Common.DTOs
             DeletionTime = deletionTime;
             Participants = participants;
         }
+
+        public override string ToString()
+        {
+            string result = $"DeletionTime: {DeletionTime}, Participants: {string.Join(", ", Participants)}";
+            return result;
+        }
     }
 }
