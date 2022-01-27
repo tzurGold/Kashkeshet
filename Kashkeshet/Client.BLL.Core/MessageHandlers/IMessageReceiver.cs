@@ -1,5 +1,4 @@
-﻿using Client.UI.Core;
-using Common.DTOs;
+﻿using Common.DTOs;
 
 namespace Client.BLL.Core.MessageHandlers
 {

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Common.DTOs;
 using Server.BLL.Core.Chats;
 
 namespace Server.BLL.Implementation.Chats
