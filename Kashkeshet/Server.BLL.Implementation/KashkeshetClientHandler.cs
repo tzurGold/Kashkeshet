@@ -29,11 +29,10 @@ namespace Server.BLL.Implementation
             try
             {
                 Request request = RequestReceiver.Receive(communicator);
+                _conntections.Add(request.From, communicator);
                 _log.InfoFormat("Got request from {0}, request message content: {1}",
                     request.From,
                     request.ClientMessage.Content);
-                _conntections.Add(request.From, communicator);
-                RequestHandlers[RequestType.Login].HandleRequest(request, _conntections, _chats);
                 RequestHandlers[request.RequestType].HandleRequest(request, _conntections, _chats);
                 while (request.RequestType != RequestType.Logout)
                 {

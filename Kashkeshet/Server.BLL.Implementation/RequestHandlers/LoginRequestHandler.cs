@@ -47,7 +47,7 @@ namespace Server.BLL.Implementation.RequestHandlers
                 {
                     var responses = chat.GetChatHistory();
                     var recipientsConnections = _connectionsSelector.GetRecipientsCommunicators(connections, members);
-                    _log.InfoFormat("Sending {0} chat history: ", chat.Name);
+                    _log.InfoFormat("Sending {0} chat history: to {1}", chat.Name, clientName);
                     foreach (var historyResponse in responses)
                     {
                         _log.InfoFormat("{0}/{1}: {2}",
