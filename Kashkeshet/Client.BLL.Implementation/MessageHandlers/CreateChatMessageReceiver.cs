@@ -38,7 +38,10 @@ namespace Client.BLL.Implementation.MessageHandlers
             {
                 _outputDisplayer.DisplayOutput("Please enter participant name: (insert 0 to stop)");
                 participant = _inputReceiver.GetInput();
-                participants.Add(participant);
+                if (participant != "0")
+                {
+                    participants.Add(participant);
+                }
             }
             return participants;
         }
