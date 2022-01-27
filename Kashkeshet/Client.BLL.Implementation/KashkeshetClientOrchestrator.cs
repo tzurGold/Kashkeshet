@@ -40,20 +40,30 @@ namespace Client.BLL.Implementation
 
         public void Run()
         {
-            Task.Run(() => _responseHandler.HandleResponse());
-            RequestType requestType = RequestType.Login;
-            Message message = _messageHandlers[requestType].GetMessage();
-            Request request = _requestFactory.CreateRequest(requestType, message, _clientName);
-            _communicator.Send(request);
-            while (requestType != RequestType.Logout)
+            try
             {
-                _menuDisplayer.DisplayMenu();
-                requestType = _optionReceiver.ChooseOption();
-                message = _messageHandlers[requestType].GetMessage();
-                request = _requestFactory.CreateRequest(requestType, message, _clientName);
+                Task.Run(() => _responseHandler.HandleResponse());
+                RequestType requestType = RequestType.Login;
+                Message message = _messageHandlers[requestType].GetMessage();
+                Request request = _requestFactory.CreateRequest(requestType, message, _clientName);
                 _communicator.Send(request);
+                while (requestType != RequestType.Logout)
+                {
+                    _menuDisplayer.DisplayMenu();
+                    requestType = _optionReceiver.ChooseOption();
+                    message = _messageHandlers[requestType].GetMessage();
+                    request = _requestFactory.CreateRequest(requestType, message, _clientName);
+                    _communicator.Send(request);
+                }
             }
-            _clientConnection.CloseConnection();
+            catch
+            {
+
+            }
+            finally
+            {
+                _clientConnection.CloseConnection();
+            }
         }
     }
 }

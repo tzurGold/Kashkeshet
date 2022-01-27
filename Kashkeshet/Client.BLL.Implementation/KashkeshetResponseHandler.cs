@@ -19,11 +19,18 @@ namespace Client.BLL.Implementation
 
         public void HandleResponse()
         {
-            while (true)
+            try
             {
-                Response response = (Response)_communicator.Receive();
-                string output = $"{response.ChatName}/{response.From}:{Environment.NewLine}{response.Content}";
-                _outputDisplayer.DisplayOutput(output);
+                while (true)
+                {
+                    Response response = (Response)_communicator.Receive();
+                    string output = $"{response.ChatName}/{response.From}:{Environment.NewLine}{response.Content}";
+                    _outputDisplayer.DisplayOutput(output);
+                }
+            }
+            catch
+            {
+
             }
         }
     }
