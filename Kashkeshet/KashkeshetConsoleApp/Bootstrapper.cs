@@ -79,6 +79,10 @@ namespace KashkeshetConsoleApp
                     {
                         RequestType.GetGroupsList,
                         new GetGroupsListMessageReceiver()
+                    },
+                    {
+                        RequestType.Login,
+                        new LoginMessageReceiver()
                     }
                 };
             try
