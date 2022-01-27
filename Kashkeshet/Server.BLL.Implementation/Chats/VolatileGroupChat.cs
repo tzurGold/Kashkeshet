@@ -27,7 +27,7 @@ namespace Server.BLL.Implementation.Chats
             {
                 ChatMessage chatMessage = GetFirstMessage();
                 if (chatMessage != null
-                    && chatMessage.CreationTime.AddSeconds(_deletionTime) > DateTime.Now)
+                    && chatMessage.CreationTime.AddSeconds(_deletionTime) < DateTime.Now)
                 {
                     DeleteMessage();
                 }

@@ -29,7 +29,7 @@ namespace Server.BLL.Implementation
             try
             {
                 Request request = RequestReceiver.Receive(communicator);
-                _log.InfoFormat("Got request from: {0}, request message content: {1}",
+                _log.InfoFormat("Got request from {0}, request message content: {1}",
                     request.From,
                     request.ClientMessage.Content);
                 _conntections.Add(request.From, communicator);

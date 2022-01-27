@@ -35,7 +35,7 @@ namespace Server.BLL.Implementation.RequestHandlers
             _log.InfoFormat("Sending: {0}/{1} to {2} content: {3}",
                 response.ChatName,
                 response.From,
-                request.From,
+                response.ChatName,
                 response.Content);
             GroupChatInfo groupChatInfo = (GroupChatInfo)request.ClientMessage.Content;
             IList<string> members = groupChatInfo.Participants;

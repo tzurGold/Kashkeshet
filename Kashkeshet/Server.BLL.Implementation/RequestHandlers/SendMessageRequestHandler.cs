@@ -40,7 +40,7 @@ namespace Server.BLL.Implementation.RequestHandlers
             _log.InfoFormat("Sending: {0}/{1} to {2} content: {3}",
                 response.ChatName,
                 response.From,
-                request.From,
+                request.ClientMessage.To,
                 response.Content);
             chat?.SaveMessage(response);
             IList<string> members = _membersSelector.GetMembersNames(request.ClientMessage.To, chat);
